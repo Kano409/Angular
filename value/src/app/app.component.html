@@ -1,0 +1,12 @@
+<h1>value</h1>
+<form [formGroup]="form" (ngSubmit)="onClick()">
+  <div fromArrayName="ContactUsNo">
+    <div *ngFor="let contact of form.controls.ContactUsNo.controls; index as i">
+      <input [formControlName]="i" placeholder="Enter contact no" />
+    </div>
+    <button>submit</button>
+  </div>
+</form>
+
+<button (click)="addNewNo()">add new</button>
+<button (click)="resetNo()">reest</button>

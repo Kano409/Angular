@@ -1,0 +1,42 @@
+<h1>form</h1>
+<form #loginForm="ngForm" (ngSubmit)="getData(loginForm.value)">
+  <input
+    type="text"
+    placeholder="Enter Name"
+    name="myName"
+    required
+    ngModel
+    #name="ngModel"
+  />
+  <span *ngIf="name.touched && !name.valid">*Pleace enter name</span>
+  <br /><br />
+  <input
+    type="text"
+    placeholder="Enter Email"
+    name="myEmail"
+    required
+    email
+    ngModel
+    #email="ngModel"
+  />
+  <span *ngIf="email.touched && !email.valid">*Pleace enter email</span>
+  <br /><br />
+  <input
+    type="password"
+    placeholder="Enter Password"
+    name="myPassword"
+    required
+    ngModel
+    #password="ngModel"
+  />
+  <span *ngIf="password.touched && !password.valid"
+    >*Pleace enter password</span
+  >
+  <br /><br />
+  <button type="submit" id="register" [disabled]="!loginForm.valid">
+    login
+  </button>
+</form>
+
+<a [routerLink]="['/router']">reactive</a>
+<router-outlet></router-outlet>

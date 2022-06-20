@@ -1,0 +1,44 @@
+<h1>{{ title | uppercase }}</h1>
+<table border="1">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Salary</th>
+    <th>Gender</th>
+    <th>Date of Birth</th>
+  </tr>
+  <tr *ngFor="let emp of employee">
+    <td>{{ emp.id }}</td>
+    <td>{{ emp.name | uppercase | usdInr: emp.gender }}</td>
+    <td>{{ emp.gender | lowercase }}</td>
+    <td>{{ emp.salary | currency: "INR" }}</td>
+    <td>{{ emp.dob }}</td>
+  </tr>
+</table>
+
+<div>
+  {{ employee | slice: 1:3 | json }}
+</div>
+
+<div>
+  <h4>
+    DoB :- {{ dob }}<br />
+    Short DoB :- {{ dob | date: "shortDate" }}<br />
+    Long DoB :- {{ dob | date: "longDate" }}<br />
+    Full DoB :- {{ dob | date: "fullDate" }}<br />
+    Medium :- {{ dob | date: "medium" | lowercase }}<br />
+    Formate :- {{ dob | date: "dd/MM/yyyy" }}<br />
+    Time :- {{ dob | date: "mediumTime" }}<br />
+  </h4>
+</div>
+
+<div>
+  {{ profession | uppercase | slice: 0:4 }}
+</div>
+
+<div>
+  {{ myNumber }}<br />
+  {{ myNumber | percent: "2.4-7" }}<br />
+  {{ myNumber | percent }}<br />
+  {{ myNumber | number: "2.4-7" }}<br />
+</div>

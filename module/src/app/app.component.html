@@ -1,0 +1,113 @@
+<h1>{{ title }}</h1>
+<h2>This is component example</h2>
+<button class="btn btn-primary" (click)="onFun()">Click Me</button>
+<div *ngIf="checkNow">ngIf example</div>
+<p [ngStyle]="{ color: 'red' }">ngStyle is work</p>
+<input type="radio" name="r1" (click)="onCheck(true)" checked />Show
+<input type="radio" name="r1" (click)="onCheck(false)" />Hide
+<div *ngIf="workRadio; else notRadio">
+  <p>
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi,
+    necessitatibus. Odio itaque sapiente voluptate voluptatum reprehenderit
+    dolorem distinctio reiciendis hic adipisci obcaecati nulla laboriosam iste
+    optio placeat quia qui iusto quos, fuga porro officiis dolore tempora. Ex
+    vitae atque quas, dignissimos officia velit modi fugiat impedit perferendis
+    soluta quis sapiente fugit, dolores expedita, officiis fuga exercitationem
+    illum! Nulla dolores cupiditate, commodi, repellat aspernatur mollitia,
+    labore possimus maxime adipisci voluptatum accusamus libero placeat.
+    Obcaecati voluptates rerum rem sunt cupiditate maxime. Ea veritatis nulla
+    quibusdam nesciunt, laborum fugit rerum quaerat quam quis mollitia dicta
+    excepturi autem alias suscipit non asperiores illum unde?
+  </p>
+</div>
+
+<ng-template #notRadio>
+  <div *ngIf="!workRadio"></div>
+</ng-template>
+
+<select (change)="setValue($event)">
+  <option value="">----select----</option>
+  <option value="first">1</option>
+  <option value="second">2</option>
+  <option value="third">3</option>
+  <option value="fourth">4</option>
+  <option value="another">null</option>
+</select>
+
+<div [ngSwitch]="choose">
+  <h1 *ngSwitchCase="'first'">one</h1>
+  <h1 *ngSwitchCase="'second'">two</h1>
+  <h1 *ngSwitchCase="'third'">three</h1>
+  <h1 *ngSwitchCase="'fourth'">four</h1>
+  <h1 *ngSwitchDefault>empty</h1>
+</div>
+
+<ul>
+  <li
+    *ngFor="
+      let a of students;
+      let i = index;
+      let f = first;
+      let l = last;
+      let o = odd;
+      let e = even
+    "
+  >
+    {{ i + 1 }} {{ a.name }} -> {{ a.class }} {{ f }} {{ l }} {{ o }} {{ e }}
+  </li>
+</ul>
+
+<table>
+  <tr *ngFor="let b of students; let i = index; trackBy: trackData">
+    <td>
+      {{ i + 1 }}
+    </td>
+    <td>
+      {{ b.id }}
+    </td>
+    <td>
+      {{ b.name }}
+    </td>
+    <td>
+      {{ b.class }}
+    </td>
+  </tr>
+</table>
+<br />
+<button class="btn btn-primary" (click)="getBinding()">More data</button>
+
+<ul *ngFor="let c of countryDetails" [ngStyle]="{ color: 'orange' }">
+  <li>
+    {{ c.country }}
+  </li>
+  <li
+    *ngFor="let d of c.person"
+    [ngStyle]="{ color: 'green' }"
+    [ngClass]="{ 'color: red': c === 'India' }"
+  >
+    {{ d.name }}
+  </li>
+</ul>
+<!-- <div [ngStyle]="{ color: 'red' }">this is change using ngstyle</div> -->
+<p [ngClass]="['one', 'two']">changing design dynamically</p>
+<div *ngFor="let a of states" [ngClass]="'three four'">
+  {{ a }}
+</div>
+
+<p [ngClass]="{ one: true }">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium temporibus
+  dicta eos officia beatae corrupti. Perspiciatis, placeat. Aliquid quaerat
+  itaque, eius voluptates tenetur, voluptas debitis commodi nam maiores tempora
+  perferendis at! Neque, doloremque nam non ab est corporis quisquam numquam.
+</p>
+
+<div [ngClass]="getCss('mode')">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero quibusdam,
+  vero accusantium consequuntur natus totam at ab aspernatur nisi esse
+  repudiandae quam aperiam quisquam nesciunt dolores veniam est.
+</div>
+
+<input type="text" [value]="title" /><br /><br />
+<button class="btn btn-primary" (click)="onFun()">binding</button><br /><br />
+<input type="text" [(ngModel)]="name" />
+<h2>{{ name }}</h2>
