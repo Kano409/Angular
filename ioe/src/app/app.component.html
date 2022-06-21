@@ -1,0 +1,11 @@
+<h1>input, output and eventemitter</h1>
+<h1>{{ title }}</h1>
+
+<button (click)="increaseOne()">plus one</button>
+<button (click)="decreaseOne()">minus one</button>
+<app-user
+  (editData)="passingData()"
+  title="lanet"
+  desc="this data from user"
+  url="available"
+></app-user>
