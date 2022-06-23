@@ -1,0 +1,11 @@
+<nav>
+  <ul>
+    <li><a [routerLink]="['/book']">book</a></li>
+    <li>
+      <a [routerLink]="[{ outlets: { bookList: ['detail'] } }]">book details</a>
+    </li>
+  </ul>
+</nav>
+<router-outlet></router-outlet>
+<router-outlet name="bookList"></router-outlet>
+

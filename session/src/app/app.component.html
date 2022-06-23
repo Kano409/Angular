@@ -1,0 +1,17 @@
+<!-- <h1>session</h1>
+<a [routerLink]="['/company']">company</a><br />
+<a [routerLink]="['/person']"
+  ><button class="btn btn-primary">person</button></a
+>
+<router-outlet></router-outlet> -->
+
+<nav [ngClass]="'menu'">
+  <ul>
+    <li><a [routerLink]="['/company']">company</a></li>
+    <li><a [routerLink]="['/person']">person</a></li>
+  </ul>
+</nav>
+
+<div>
+  <router-outlet></router-outlet>
+</div>

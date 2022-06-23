@@ -1,1 +1,8 @@
 <h1>observable and subscribe</h1>
+<!-- 8. show data -->
+<!-- <ul *ngFor="let bk of softBook" style="list-style: none"> -->
+<ul *ngFor="let bk of softBook | async" style="list-style: none">
+  <li>Id : {{ bk.id }}</li>
+  <li>Name : {{ bk.name }}</li>
+  <li>Category : {{ bk.category }}</li>
+</ul>

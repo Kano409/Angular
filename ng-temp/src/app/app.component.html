@@ -1,0 +1,25 @@
+<!-- <h1>div with ngIf</h1>
+<div *ngIf="display">
+  Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt, optio!
+</div>
+<h1>div with ng template</h1>
+<ng-template [ngIf]="display"
+  >Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eius perferendis
+  ipsum id error voluptatem. Aliquam animi neque id, magni, accusantium
+  recusandae nulla doloremque corporis ullam delectus minus sunt! Inventore
+  minus assumenda quam ex maxime, suscipit vitae quos repellendus ipsam
+  molestias sit, ipsa rerum veniam odio aspernatur temporibus libero optio
+  architecto.</ng-template
+> -->
+
+<!-- <h1>div with ngIf else</h1>
+<div *ngIf="display; else notDisplay">display == true</div>
+<h1>div with ng template else</h1>
+<ng-template #notDisplay>display == false</ng-template> -->
+
+<h1>div with ngFor</h1>
+<div *ngFor="let e of employee">{{ e.id }} || {{ e.name }}</div>
+<h1>ng-template with ngFor</h1>
+<ng-template ngFor let-emp [ngForOf]="employee">
+  {{ emp.id }} || {{ emp.name }}
+</ng-template>

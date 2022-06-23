@@ -1,0 +1,21 @@
+<h1>ng container</h1>
+<ng-container>
+  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi impedit autem
+  dignissimos maiores accusamus incidunt atque officiis deserunt similique quae?
+</ng-container>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+  </tr>
+  <ng-container *ngFor="let b of books">
+    <tr *ngIf="available">
+      <td>{{ b.id }}</td>
+      <td>{{ b.name }}</td>
+    </tr>
+  </ng-container>
+</table>
+
+<ng-container *ngFor="let bk of books">
+  <div *ngIf="available">{{ bk.id }} || {{ bk.name }}</div>
+</ng-container>

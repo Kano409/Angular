@@ -4,18 +4,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-//import  { InMemoryDbService } from '@angular-in-memory-web-api';
-
+//5. import service
+import { BookService } from './book.service';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HttpClientModule } from '@angular/common/http';
+import { testdata } from './testdata';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, InMemoryWebApiModule.forRoot(testdata), HttpClientModule],
+  providers: [BookService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,0 +1,4 @@
+<h1>book list</h1>
+<ul>
+  <li *ngFor="let book of books | async">{{ book.id }} || {{ book.name }}</li>
+</ul>
