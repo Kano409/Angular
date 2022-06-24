@@ -1,0 +1,25 @@
+<div class="main">
+  <h1>Add new item</h1>
+
+  <div class="addItem">
+    <input
+      type="text"
+      placeholder="Enter Name"
+      [(ngModel)]="newItem"
+      class="addText"
+    />
+  </div>
+  <br />
+  <button class="btn btn-primary" (click)="addNew()">add</button>
+  <hr />
+  <ul *ngFor="let list of item; let i = index">
+    <li>
+      {{ list
+      }}<span (click)="remove(i)"
+        >&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-danger">
+          delete
+        </button></span
+      >
+    </li>
+  </ul>
+</div>
