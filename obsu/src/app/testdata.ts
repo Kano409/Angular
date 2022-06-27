@@ -14,16 +14,16 @@ export class testdata implements InMemoryDbService {
         name: 'ancient india',
         category: 'history',
       },
-      {
-        id: 103,
-        name: 'fundamental of machine',
-        category: 'mechanics',
-      },
-      {
-        id: 104,
-        name: 'road construction',
-        category: 'civil',
-      },
+      // {
+      //   id: 103,
+      //   name: 'fundamental of machine',
+      //   category: 'mechanics',
+      // },
+      // {
+      //   id: 104,
+      //   name: 'road construction',
+      //   category: 'civil',
+      // },
     ];
     return { books: bookDetails };
   }

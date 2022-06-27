@@ -1,8 +1,53 @@
-<h1>observable and subscribe</h1>
+<h1>observable and subscribe - http client</h1>
 <!-- 8. show data -->
+
 <!-- <ul *ngFor="let bk of softBook" style="list-style: none"> -->
-<ul *ngFor="let bk of softBook | async" style="list-style: none">
-  <li>Id : {{ bk.id }}</li>
-  <li>Name : {{ bk.name }}</li>
-  <li>Category : {{ bk.category }}</li>
-</ul>
+<!-- <ul *ngFor="let bk of softBook | async" style="list-style: none"> -->
+<!-- <li>Id : {{ bk.id }}</li> -->
+<!-- <li>Name : {{ bk.name }}</li> -->
+<!-- <li>Category : {{ bk.category }}</li> -->
+<!-- </ul> -->
+
+<!-- 10. insert data -->
+<p *ngIf="datasaved">record successfully save....!</p>
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit()">
+  <table border="2">
+    <tr>
+      <td>Name :</td>
+      <td>
+        <input formControlName="name" />
+      </td>
+    </tr>
+    <tr>
+      <td>Category :</td>
+      <td>
+        <input formControlName="category" />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button [disabled]="bookForm.invalid">submit</button>
+      </td>
+    </tr>
+  </table>
+</form>
+<br />
+<br />
+<!-- 12. display data -->
+<table border="1">
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let bk of allBooks | async">
+    <td>{{ bk.id }}</td>
+    <td>{{ bk.name }}</td>
+    <td>{{ bk.category }}</td>
+    <td>
+      <button (click)="bookEdit()">edit</button>
+      <button (click)="bookDelete(bk.id)">delete</button>
+    </td>
+  </tr>
+</table>

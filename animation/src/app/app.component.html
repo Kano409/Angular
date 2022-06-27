@@ -12,8 +12,8 @@
   <br />
   <button class="btn btn-primary" (click)="addNew()">add</button>
   <hr />
-  <ul *ngFor="let list of item; let i = index">
-    <li>
+  <ul>
+    <li @FadeInFadeOut *ngFor="let list of item; let i = index">
       {{ list
       }}<span (click)="remove(i)"
         >&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-danger">

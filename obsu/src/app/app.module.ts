@@ -9,10 +9,11 @@ import { BookService } from './book.service';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { HttpClientModule } from '@angular/common/http';
 import { testdata } from './testdata';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, InMemoryWebApiModule.forRoot(testdata), HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, InMemoryWebApiModule.forRoot(testdata), HttpClientModule,FormsModule,ReactiveFormsModule],
   providers: [BookService],
   bootstrap: [AppComponent],
 })
