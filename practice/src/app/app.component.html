@@ -1,0 +1,61 @@
+<h1>practice</h1>
+<h1>form</h1>
+<!-- <form #loginForm="ngForm" (ngSubmit)="getData(loginForm)">
+  <input type="text" placeholder="Enter Name" name="Name" required ngModel />
+  <br /><br />
+  <input
+    type="text"
+    placeholder="Enter Email"
+    name="Email"
+    email
+    required
+    ngModel
+    #email="ngModel"
+  />
+  <span *ngIf="email.touched && !email.valid">Invalid email</span>
+  <br /><br />
+  <input
+    type="password"
+    placeholder="Enter Password"
+    name="Password"
+    required
+    ngModel
+    #email="ngModel"
+  />
+
+  <br /><br />
+  <button type="submit" id="register" [disabled]="!loginForm.valid">
+    login
+  </button>
+</form> -->
+
+<form [formGroup]="signForm" (ngSubmit)="postData(signForm)">
+  <input type="text" formControlName="Name" placeholder="Enter Name" required />
+  <span *ngIf="signForm.controls['Name'].hasError('required')"
+    >Name is required</span
+  >
+  <br /><br />
+  <input
+    type="text"
+    formControlName="Email"
+    placeholder="Enter Email"
+    required
+  />
+  <br /><br />
+  <input
+    type="password"
+    formControlName="Password"
+    placeholder="Enter Password"
+    required
+  />
+
+  <br /><br />
+  <button type="submit" id="register" [disabled]="!signForm.valid">
+    login
+  </button>
+
+  <button (click)="resetData()">resert</button>
+  <button (click)="setData()">set</button>
+  <button (click)="patchData()">patch</button>
+</form>
+<h4>{{ signForm.value | json }}</h4>
