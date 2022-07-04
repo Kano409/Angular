@@ -12,7 +12,7 @@ export class BookService {
   constructor(private http: HttpClient) {}
   //Book[] -> type of observable
 
-  // fetch data from api
+  // fetch data from api (call api)
   getBooksFromStore(): Observable<Book[]> {
     return this.http.get<Book[]>(this.bookUrl);
   }

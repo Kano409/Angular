@@ -12,13 +12,10 @@ import { AboutCompanyComponent } from './about-company/about-company.component';
     AppComponent,
     AboutComponent,
     AboutMeComponent,
-    AboutCompanyComponent
+    AboutCompanyComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

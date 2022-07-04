@@ -1,1 +1,15 @@
 <h1>loading</h1>
+<ul>
+  <li>
+    <a [routerLink]="['company']" routerLinkActive="active">comapny</a>
+  </li>
+  <li>
+    <a [routerLink]="['company-list']">company-list</a>
+  </li>
+</ul>
+<router-outlet></router-outlet>
+<ul *ngFor="let com of list">
+  <li>{{ com.name | json }}</li>
+  <li>{{ com.country }}</li>
+</ul>
+<button (click)="getRoute()">dyroute</button>
