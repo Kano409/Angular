@@ -20,7 +20,7 @@ import { DeactiveGuard } from './deactive.guard';
     BookListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [ActiveGuard, UserService],
+  providers: [ActiveGuard, UserService, DeactiveGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

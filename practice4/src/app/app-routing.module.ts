@@ -25,6 +25,7 @@ export const routes: Routes = [
   {
     path: 'about',
     component: AboutUsComponent,
+    canDeactivate: [DeactiveGuard],
   },
   // {
   //   path: '',

@@ -1,0 +1,52 @@
+<h1>practice5</h1>
+
+<form [formGroup]="bookForm" (ngSubmit)="onFormSubmit()">
+  <table>
+    <tr>
+      <td>Name :</td>
+      <td>
+        <input formControlName="name" />
+      </td>
+    </tr>
+    <tr>
+      <td>Author :</td>
+      <td>
+        <input formControlName="author" />
+      </td>
+    </tr>
+    <tr>
+      <td>Price :</td>
+      <td>
+        <input formControlName="price" />
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <button class="btn btn-primary" [disabled]="bookForm.invalid">
+          submit
+        </button>
+      </td>
+    </tr>
+  </table>
+</form>
+
+<div style="width: 50%">
+  <table class="table table-striped">
+    <thead class="thead-light">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Author</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let bk of allBooks | async">
+        <th scope="row">{{ bk.id }}</th>
+        <td>{{ bk.name }}</td>
+        <td>{{ bk.author }}</td>
+        <td>{{ bk.price }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
