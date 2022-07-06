@@ -1,0 +1,36 @@
+<router-outlet></router-outlet>
+<table class="table" style="width: 50%">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Title</th>
+      <th scope="col">Author</th>
+      <th scope="col">Page No</th>
+      <th scope="col">Picture</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let bk of softBook">
+      <th scope="row">{{ bk.id }}</th>
+      <td>{{ bk.title }}</td>
+      <td>{{ bk.author }}</td>
+      <td>{{ bk.pageno }}</td>
+      <td>
+        <img style="width: 80px; height: 100px" src="{{ bk.picture }}" />
+      </td>
+      <td>
+        <button type="button" class="btn btn-outline-primary">Edit</button>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-outline-success"
+          (click)="deleteOfBook(bk.id)"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
