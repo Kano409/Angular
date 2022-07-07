@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Observable } from 'rxjs';
 import { AppComponent } from '../app.component';
 import { Book } from '../book';
 import { BookService } from '../book.service';
@@ -14,6 +15,8 @@ export class BookComponent implements OnInit {
   softBook: Book[] | any;
   datasaved = false;
   bookFrom: any = FormGroup;
+  allBooks: Observable<Book[]> | undefined;
+  getBooksFromStore: any;
 
   ngOnInit(): void {
     this.getOfBook();
@@ -25,9 +28,10 @@ export class BookComponent implements OnInit {
   ) {}
 
   getOfBook() {
-    this.bookService
-      .getBooksFromStore()
-      .subscribe((books) => (this.softBook = books));
+    // this.bookService
+    //   .getBooksFromStore()
+    //   .subscribe((books) => (this.softBook = books));
+    this.allBooks = this.bookService.getBooksFromStore();
   }
 
   deleteOfBook(bookid: number) {
@@ -35,4 +39,6 @@ export class BookComponent implements OnInit {
       .deleteBooksFromStore(bookid)
       .subscribe((books) => this.getOfBook());
   }
+
+  editOfBook() {}
 }

@@ -29,6 +29,4 @@ export class AppComponent {
       .getBooksFromStore()
       .subscribe((books) => (this.softBook = books));
   }
-
-  
 }

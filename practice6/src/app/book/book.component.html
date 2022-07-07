@@ -1,4 +1,5 @@
 <router-outlet></router-outlet>
+
 <table class="table" style="width: 50%">
   <thead class="thead-light">
     <tr>
@@ -11,9 +12,9 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let bk of softBook">
+    <tr *ngFor="let bk of allBooks | async">
       <th scope="row">{{ bk.id }}</th>
-      <td>{{ bk.title }}</td>
+      <td>{{ bk.name }}</td>
       <td>{{ bk.author }}</td>
       <td>{{ bk.pageno }}</td>
       <td>

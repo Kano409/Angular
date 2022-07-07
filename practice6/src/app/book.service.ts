@@ -8,7 +8,6 @@ import { AddBookComponent } from './add-book/add-book.component';
   providedIn: 'root',
 })
 export class BookService {
-  [x: string]: any;
   bookUrl = '/api/books';
 
   constructor(private http: HttpClient) {}
@@ -17,7 +16,7 @@ export class BookService {
     return this.http.get<Book[]>(this.bookUrl);
   }
 
-  createBookFromStore(book: Book): Observable<Book> {
+  createBook(book: Book): Observable<Book> {
     let httpHeader = new HttpHeaders().set('Content-Type', 'application/Json');
     let options = {
       headers: httpHeader,
@@ -31,5 +30,13 @@ export class BookService {
       header: httpHeader,
     };
     return this.http.delete<number>(this.bookUrl + '/' + bookid);
+  }
+
+  updateBooksFromStore(book: Book): Observable<number> {
+    let httpHeader = new HttpHeaders().set('Content-Type', 'application/Json');
+    let options = {
+      headers: httpHeader,
+    };
+    return this.http.put<number>(this.bookUrl + '/' + book.id, book, options);
   }
 }

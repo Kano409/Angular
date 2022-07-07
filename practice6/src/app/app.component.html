@@ -39,11 +39,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let bk of softBook">
+    <tr *ngFor="let bk of allBooks | async">
       <th scope="row">{{ bk.id }}</th>
-      <td>{{ bk.title }}</td>
+      <td>{{ bk.name }}</td>
       <td>{{ bk.author }}</td>
-      <td>{{ bk.pageno | currency: "INR" }}</td>
+      <td>{{ bk.pageno }}</td>
       <td>
         <img style="width: 100px; height: 100px" src="{{ bk.picture }}" />
       </td>
@@ -55,4 +55,55 @@
       </td>
     </tr>
   </tbody>
-</table> -->
+</table>
+
+<div class="container" style="width: 25%">
+  <form (ngSubmit)="onFormSubmit()">
+    <h4 style="text-align: center">Add New Book In List</h4>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Title</label>
+      <input
+        type="title"
+        class="form-control"
+        id="exampleInputTitle"
+        aria-describedby="titleHelp"
+        placeholder="Enter Title"
+        #title
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Name</label>
+      <input
+        type="name"
+        class="form-control"
+        id="exampleInputName"
+        placeholder="Enter Name"
+        #name
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Author</label>
+      <input
+        type="name"
+        class="form-control"
+        id="exampleInputAuthor"
+        placeholder="Enter Author"
+        #author
+      />
+    </div>
+    <div class="form-group">
+      <label for="exampleInputPassword1">Page No</label>
+      <input
+        type="name"
+        class="form-control"
+        id="exampleInputPageNo"
+        placeholder="Enter PageNo"
+        #pageno
+      />
+    </div>
+    <br />
+    <div class="form-group" style="text-align: center; padding-bottom: 5px">
+      <button class="btn btn-primary">Add Book</button>
+    </div>
+  </form>
+</div>-->
