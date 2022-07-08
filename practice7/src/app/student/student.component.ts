@@ -1,5 +1,4 @@
 import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
-import { threadId } from 'worker_threads';
 
 @Component({
   selector: 'app-student',
