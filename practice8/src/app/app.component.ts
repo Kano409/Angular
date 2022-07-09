@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Book } from 'src/models/user';
 import { BookService } from './services/book.service';
 import {
@@ -7,6 +7,7 @@ import {
   FormBuilder,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,11 @@ export class AppComponent {
   fileToUpload: any;
   imageUrl: any;
 
-  constructor(private bookService: BookService, public fb: FormBuilder) {
+  constructor(
+    private bookService: BookService,
+    public router: Router,
+    public fb: FormBuilder
+  ) {
     this.loginForm = this.fb.group({
       avatar: [null],
       name: [''],
@@ -64,6 +69,7 @@ export class AppComponent {
       this.bookService.insertBook(book);
     }
     this.bookForm = false;
+    this.router.navigate(['home']);
   }
 
   updateBook() {

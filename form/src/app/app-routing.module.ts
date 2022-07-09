@@ -4,7 +4,7 @@ import { ReactiveformComponent } from './reactiveform/reactiveform.component';
 
 const routes: Routes = [
   {
-    path: 'router',
+    path: 'reactive',
     component: ReactiveformComponent,
   },
 ];

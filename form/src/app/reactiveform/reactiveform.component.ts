@@ -10,9 +10,9 @@ export class ReactiveformComponent implements OnInit {
   ngOnInit(): void {}
 
   loginForm: FormGroup;
-  myName: string = '';
-  myEmail: string = '';
-  myPasword: string = '';
+  Name: string = '';
+  Email: string = '';
+  Pasword: string = '';
 
   constructor(private fromBuilder: FormBuilder) {
     this.loginForm = fromBuilder.group({
@@ -29,9 +29,9 @@ export class ReactiveformComponent implements OnInit {
 
   postData(loginForm: any) {
     // data binding -> change here, change at page
-    this.myName = loginForm.controls.myName.value;
-    this.myEmail = loginForm.controls.myEmail.value;
-    this.myPasword = loginForm.controls.myName.value;
+    this.Name = loginForm.controls.myName.value;
+    this.Email = loginForm.controls.myEmail.value;
+    this.Pasword = loginForm.controls.myName.value;
     console.log(loginForm);
   }
 }

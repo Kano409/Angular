@@ -132,8 +132,12 @@
                 <input
                   #Image
                   type="file"
+                  name="file"
                   (change)="handleFileInput($any($event.target).files)"
                 />
+                <!-- <span *ngIf="file.touched && !file.valid"
+                  >*Please Enter Image</span
+                > -->
               </td>
             </tr>
             <tr>
@@ -223,7 +227,12 @@
             #Image
             type="file"
             (change)="handleFileInput($any($event.target).files)"
+            [(ngModel)]="fileToUpload.file"
+            #file="ngModel"
+            required
           />
+          <span *ngIf="file.touched && !file.valid">*Please Enter Image</span>
+          -->
         </p>
         <p>
           <button
@@ -246,3 +255,4 @@
     </div>
   </div>
 </div>
+<router-outlet></router-outlet>
