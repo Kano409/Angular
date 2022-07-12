@@ -20,5 +20,10 @@ export class ServersComponent implements OnInit {
     this.servers = this.serversService.getServers();
   }
 
- 
+  onReload() {
+    // the default is to navigate relative to the root domain
+    // this.router.navigate(["servers"]);
+    // navigate relative to this component's route
+    // this.router.navigate(["servers"], { relativeTo: this.route });
+  }
 }

@@ -8,24 +8,31 @@ import { Subscription } from "rxjs";
   styleUrls: ["./user.component.css"],
 })
 export class UserComponent implements OnInit, OnDestroy {
-  users: { id: string; name: string };
-  paramSubscription: Subscription;
+  user: { id: number; name: string };
+  paramsSubscription: Subscription;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.users = {
+    this.user = {
       id: this.route.snapshot.params["id"],
       name: this.route.snapshot.params["name"],
     };
-
-    this.paramSubscription = this.route.params.subscribe((params: Params) => {
-      this.users.id = params["id"];
-      this.users.name = params["name"];
+    // If the params of the current route can change then subscribe to an
+    // Observable which updates the property values so that chages are
+    // reflected in the template. If the component can never be reloaded from
+    // within the component then this code would not be needed.
+    this.paramsSubscription = this.route.params.subscribe((params: Params) => {
+      this.user.id = params["id"];
+      this.user.name = params["name"];
     });
   }
 
+  // In the previous lecture we did not have this code. We do not need it as Angular
+  // by default unsubscribes to this route Observable when the component is destroyed.
+  // The Observable no longer lives in memory. This is just to illustrate how to do
+  // this for you own observables.
   ngOnDestroy() {
-    this.paramSubscription.unsubscribe();
+    this.paramsSubscription.unsubscribe();
   }
 }
