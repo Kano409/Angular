@@ -9,18 +9,22 @@ export class RecipeService {
     new Recipe(
       'Khaman Dhokla',
       'This dish popular at gujarat',
-      'https://5.imimg.com/data5/AV/QJ/MY-19368834/vati-dal-khaman-500x500.jpg',
+      'https://images.aws.nestle.recipes/original/69111af01e9114ea805c5fa4821c6a70_Khaman_Dhokla_Plating.jpg',
       [new Ingredient('chana loat', 1), new Ingredient('dhaniya', 20)]
     ),
     new Recipe(
       'Vada Pau',
       'This dish popular at maharastra',
-      'https://farm8.staticflickr.com/7315/16386081065_62e3db594c_b.jpg',
+      'https://imagevars.gulfnews.com/2022/05/14/Vada-Pav_180bf15c40b_original-ratio.jpg',
       [new Ingredient('mirchi', 2), new Ingredient('ketchup', 1)]
     ),
   ];
 
   public get Recipes() {
     return this.recipes.slice(); // return a copy
+  }
+
+  public getRecipe(index: number) {
+    return this.recipes[index];
   }
 }

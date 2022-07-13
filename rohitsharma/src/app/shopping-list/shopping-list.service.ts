@@ -9,14 +9,12 @@ export class ShoppingListService {
     new Ingredient('Tomatoes', 10),
   ];
 
-  // return copy of array not original
   public get Ingredients() {
-    return this.ingredients.slice();
+    return this.ingredients.slice(); // return a copy
   }
 
-  // display ingredient at shopping page
   public addIngredients(ingredients: Ingredient[]) {
     this.ingredients.push(...ingredients);
-    this.ingredientsChanged.emit(this.ingredients.slice());
+    this.ingredientsChanged.emit(this.ingredients.slice()); // return a copy
   }
 }
