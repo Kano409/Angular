@@ -1,0 +1,18 @@
+<h1>assignment</h1>
+<form #maruForm="ngForm" (submit)="onSubmitForm(maruForm)">
+  Email : <input type="email" name="email" ngModel email #email /><br /><br />
+  Subscription :
+  <select name="select" name="subscription"ngModel #subscription>
+    <option value="basic">Basic</option>
+    <option value="advance">Advance</option>
+    <option value="pro">Pro</option></select
+  ><br /><br />
+  Password : <input type="text" name="password" ngModel #password /><br /><br />
+  <button type="submit">Submit</button>
+  <button type="button" (click)="setAllValue()">set</button>
+</form>
+<hr />
+<h4>Your data</h4>
+<p>email : {{ email.value }}</p>
+<p>subscription : {{ subscription.value }}</p>
+<p>password : {{ password.value }}</p>
