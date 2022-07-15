@@ -7,21 +7,23 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
+  @ViewChild('form')
+  maruForm!: NgForm;
   title = 'indvsaus';
-
-  @ViewChild('#form')
-  maruForm: NgForm | any;
+  formSubmitted = false;
 
   email = '';
   subscription = '';
   password = '';
 
   onSubmitForm(form: NgForm) {
+    this.formSubmitted = true;
     console.log(form);
   }
 
   setAllValue() {
     console.log('set all value automatically');
+    // setvalue()
     this.maruForm.setValue({
       email: 'kingpatel@gmail.com',
       subscription: 'basic',
