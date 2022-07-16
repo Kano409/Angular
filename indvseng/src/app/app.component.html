@@ -1,0 +1,39 @@
+<h1>assignment</h1>
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+  Project Name :
+  <input type="text" formControlName="pname" #pname />
+  <span
+    *ngIf="!signUpForm.get('pname').valid && signUpForm.get('pname').touched"
+    >Enter Project Name</span
+  >
+  <br /><br />
+  Mail : <input type="text" email formControlName="email" #email />
+  <span
+    *ngIf="!signUpForm.get('email').valid && signUpForm.get('email').touched"
+    >Enter Mail</span
+  >
+  <br /><br />
+  Project Status :
+  <div>
+    <select formControlName="status" #status>
+      <option *ngFor="let status of pStatus" [value]="status">
+        {{ status }}
+      </option>
+    </select>
+    <span
+      *ngIf="
+        !signUpForm.get('status').valid && signUpForm.get('status').touched
+      "
+      >Enter Project Status</span
+    >
+  </div>
+  <br /><br />
+  <button [disabled]="!signUpForm.valid">Submit</button>
+</form>
+<div *ngIf="submittedForm">
+  <hr />
+  <h4>Your data</h4>
+  <p>Project Name : {{ pname.value }}</p>
+  <p>Mail : {{ email.value }}</p>
+  <p>Project Status : {{ status.value }}</p>
+</div>
